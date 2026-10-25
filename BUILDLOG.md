@@ -163,3 +163,29 @@ reaches SUCCESS in sandbox.
    states no X rate; Space Cadet and MW4 have no YouTube rate. The engine
    flags these MISSING_PLATFORM_RATE rather than borrowing another
    platform's rate.
+
+## Owner sitting — 2026-10-25 (completed in one pass)
+
+- **Devpost:** account created as Meeks1978 via GitHub sign-up; registered for the
+  PayPal AI Hackathon ("You're registered for this hackathon"). Solo entry.
+  Survey: heard via Other; no prior payment integration or PayPal API work;
+  AI experience Intermediate; goals Prizes + Solving a Problem; marketing No.
+  No team or project entry created yet.
+- **PayPal Developer:** sandbox app "ClipSplit" created 2026-10-25 09:36 EDT,
+  Sandbox mode, Merchant type, Payouts feature enabled. Tied to the default
+  sandbox business account. Credentials exist in the Developer dashboard;
+  Client ID/Secret transfer into .env is part of the executor-wiring step
+  (kept out of chat and out of this repo).
+- **Sandbox accounts (3):**
+  - Business (sender, default): sb-fwz8d53506019@business.example.com
+  - Personal "operator" (default): sb-y220v53532795@personal.example.com
+  - Personal "clipper-b" (created in the sitting): sb-kqm47s53531703@personal.example.com
+  Recipient mapping recorded in the local gitignored .env.
+- **GitHub:** public repo created — https://github.com/Meeks1978/clipsplit
+  Local project committed (32 files) and pushed; commit 90e948c verified live
+  and public. SSH key "Archer — Muse VM" added to the account at the owner's
+  explicit authorization for future pushes.
+- **Remaining before the Oct 31 go/no-go checkpoint:** wire
+  src/paypal/payoutExecutor.ts against the sandbox (currently a stub), fill
+  .env credentials, run one end-to-end sandbox Payouts batch to the two
+  personal accounts, verify batch status + statements.
