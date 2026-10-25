@@ -1,0 +1,7 @@
+Clip	Posted by	Campaign	Site	Plays	Length	URL
+juvon-ig-1	clipper-b	Juvon Clips	IG	18.5K	0:24	https://instagram.com/reel/xyz
+boxabl-batch1-1	operator	Boxabl Official (Clip Farm)	YT	7	0:47	
+sartain-tt-9	clipper-b	Sartain	TikTok	12,050	0:41	
+broken-row-1	operator	BOXED	YouTube	N/A	0:30	
+mystery-1	clipper-b	Some Random Campaign	TikTok	9,999	0:20	
+noplat-1	clipper-b	BOXED		5,000	0:20	

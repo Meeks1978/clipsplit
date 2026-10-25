@@ -1,0 +1,10 @@
+node_modules/
+dist/
+.env
+.env.*
+!.env.example
+*.log
+.DS_Store
+coverage/
+# Never commit real credentials. Sandbox client ID/secret go in .env (see README).
+paypal-sandbox-credentials*.json
