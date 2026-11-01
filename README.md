@@ -22,8 +22,9 @@ ClipSplit fixes the workflow end to end:
 3. **Approve** — the operator reviews the ledger and flags before money
    moves. Nothing is paid on an unapproved ledger.
 4. **Pay** — the approved split executes as a **PayPal Payouts batch in
-   the sandbox** via the official PayPal Agent Toolkit, and every clipper
-   receives a per-clip statement explaining their payout line by line.
+   the sandbox** via the PayPal Payouts REST API directly, and every
+   clipper receives a per-clip statement explaining their payout line by
+   line.
 
 Built for the **PayPal AI Hackathon** (submission deadline Nov 12, 2026).
 Sandbox only — no real money moves, ever, in this codebase's hackathon
@@ -56,9 +57,9 @@ source noted.
                                     operator approves ────┤
                                                         ▼
               [Seam B: PayPal sandbox Payouts executor]  [Statements:
-               via @paypal/agent-toolkit]                 per-clipper,
-                                                          Agent Toolkit
-                                                          invoicing]
+               via PayPal Payouts REST API]               per-clipper,
+                                                          rendered from
+                                                          the ledger]
 ```
 
 | Path | Contents |
@@ -68,7 +69,7 @@ source noted.
 | `src/engine/payout.ts` | Pure payout engine (gates → min → cap → optional fee), no I/O |
 | `src/ingest/exportParser.ts` | Seam A: LLM export-parser interface + stub |
 | `src/ingest/deterministicParser.ts` | Seam A, deterministic path: rule-based CSV/TSV/JSON parser with mapping report (implemented) |
-| `src/paypal/payoutExecutor.ts` | Seam B: sandbox Payouts executor interface + stub |
+| `src/paypal/payoutExecutor.ts` | Seam B: `RestPayoutExecutor` — OAuth client-credentials → POST /v1/payments/payouts → batch poll; sandbox-only, refuses unapproved batches and placeholder recipients (implemented; the `@paypal/agent-toolkit` package was inspected and contains no Payouts tools, so the executor calls the REST API directly) |
 | `src/paypal/batchPreview.ts` | Builds the exact sandbox batch payload for an approved ledger — preview only, no network (implemented) |
 | `src/paypal/statements.ts` | Per-clipper statement builder/renderer (implemented) + delivery stub |
 | `src/index.ts` | Demo entry: prices the seeded sample and prints ledger + statement |
